@@ -47,6 +47,11 @@ public class DateUtil {
         return new SimpleDateFormat(parttern);
     }
 
+    public static String getHMS(String datetimeStr) {
+        DateTimeFormatter ymdHmsDateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter hmsDateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        return LocalDateTime.parse(datetimeStr, ymdHmsDateTimeFormatter).format(hmsDateTimeFormatter);
+    }
 
     public static String dateToString(Date date, String pattern) {
         String dateString = null;
